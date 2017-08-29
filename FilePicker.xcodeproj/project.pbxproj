@@ -13,9 +13,18 @@
 		5017222D1F53B306009592DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5017222B1F53B306009592DA /* Main.storyboard */; };
 		5017222F1F53B306009592DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5017222E1F53B306009592DA /* Assets.xcassets */; };
 		501722321F53B306009592DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501722301F53B306009592DA /* LaunchScreen.storyboard */; };
+		5017223D1F53FD44009592DA /* FilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017223C1F53FD44009592DA /* FilePickerViewController.m */; };
+		501722421F553B39009592DA /* 文件.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722401F553B39009592DA /* 文件.png */; };
+		501722431F553B39009592DA /* 文件夹.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722411F553B39009592DA /* 文件夹.png */; };
+		501722461F554117009592DA /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722441F554117009592DA /* 返回.png */; };
+		501722471F554117009592DA /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722451F554117009592DA /* 关闭.png */; };
+		501722501F555F0B009592DA /* 方形未选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017224E1F555F0B009592DA /* 方形未选中.png */; };
+		501722511F555F0B009592DA /* 方形选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017224F1F555F0B009592DA /* 方形选中.png */; };
+		51107A859F71FAF6D844D62F /* libPods-FilePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CE7A590AB215CB1C34037F /* libPods-FilePicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29A29C27E24BF88CF10AFDCB /* Pods-FilePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FilePicker/Pods-FilePicker.debug.xcconfig"; sourceTree = "<group>"; };
 		5017221F1F53B306009592DA /* FilePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501722231F53B306009592DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		501722251F53B306009592DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +35,16 @@
 		5017222E1F53B306009592DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		501722311F53B306009592DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		501722331F53B306009592DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5017223B1F53FD44009592DA /* FilePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePickerViewController.h; sourceTree = "<group>"; };
+		5017223C1F53FD44009592DA /* FilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePickerViewController.m; sourceTree = "<group>"; };
+		501722401F553B39009592DA /* 文件.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件.png"; sourceTree = "<group>"; };
+		501722411F553B39009592DA /* 文件夹.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件夹.png"; sourceTree = "<group>"; };
+		501722441F554117009592DA /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
+		501722451F554117009592DA /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
+		5017224E1F555F0B009592DA /* 方形未选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形未选中.png"; sourceTree = "<group>"; };
+		5017224F1F555F0B009592DA /* 方形选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形选中.png"; sourceTree = "<group>"; };
+		58CE7A590AB215CB1C34037F /* libPods-FilePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A77CED3843217D1C091518 /* Pods-FilePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilePicker/Pods-FilePicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51107A859F71FAF6D844D62F /* libPods-FilePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +64,8 @@
 			children = (
 				501722211F53B306009592DA /* FilePicker */,
 				501722201F53B306009592DA /* Products */,
+				E8483CF97C81FCBEFD1C44FA /* Pods */,
+				A8938C134C7B3870338D4CD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +84,14 @@
 				501722261F53B306009592DA /* AppDelegate.m */,
 				501722281F53B306009592DA /* ViewController.h */,
 				501722291F53B306009592DA /* ViewController.m */,
+				5017223B1F53FD44009592DA /* FilePickerViewController.h */,
+				5017223C1F53FD44009592DA /* FilePickerViewController.m */,
+				501722401F553B39009592DA /* 文件.png */,
+				501722411F553B39009592DA /* 文件夹.png */,
+				501722441F554117009592DA /* 返回.png */,
+				501722451F554117009592DA /* 关闭.png */,
+				5017224E1F555F0B009592DA /* 方形未选中.png */,
+				5017224F1F555F0B009592DA /* 方形选中.png */,
 				5017222B1F53B306009592DA /* Main.storyboard */,
 				5017222E1F53B306009592DA /* Assets.xcassets */,
 				501722301F53B306009592DA /* LaunchScreen.storyboard */,
@@ -79,6 +109,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A8938C134C7B3870338D4CD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58CE7A590AB215CB1C34037F /* libPods-FilePicker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8483CF97C81FCBEFD1C44FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29A29C27E24BF88CF10AFDCB /* Pods-FilePicker.debug.xcconfig */,
+				E6A77CED3843217D1C091518 /* Pods-FilePicker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501722361F53B306009592DA /* Build configuration list for PBXNativeTarget "FilePicker" */;
 			buildPhases = (
+				F08370111ECF8CA538438C5E /* [CP] Check Pods Manifest.lock */,
 				5017221B1F53B306009592DA /* Sources */,
 				5017221C1F53B306009592DA /* Frameworks */,
 				5017221D1F53B306009592DA /* Resources */,
+				18C5F8E0D143AFBFB70674D3 /* [CP] Embed Pods Frameworks */,
+				E6F19BBB317E8643AF7BA354 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,12 +189,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				501722321F53B306009592DA /* LaunchScreen.storyboard in Resources */,
+				501722471F554117009592DA /* 关闭.png in Resources */,
+				501722461F554117009592DA /* 返回.png in Resources */,
 				5017222F1F53B306009592DA /* Assets.xcassets in Resources */,
+				501722421F553B39009592DA /* 文件.png in Resources */,
 				5017222D1F53B306009592DA /* Main.storyboard in Resources */,
+				501722431F553B39009592DA /* 文件夹.png in Resources */,
+				501722501F555F0B009592DA /* 方形未选中.png in Resources */,
+				501722511F555F0B009592DA /* 方形选中.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18C5F8E0D143AFBFB70674D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilePicker/Pods-FilePicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6F19BBB317E8643AF7BA354 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FilePicker/Pods-FilePicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08370111ECF8CA538438C5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FilePicker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5017221B1F53B306009592DA /* Sources */ = {
@@ -153,6 +260,7 @@
 			files = (
 				5017222A1F53B306009592DA /* ViewController.m in Sources */,
 				501722271F53B306009592DA /* AppDelegate.m in Sources */,
+				5017223D1F53FD44009592DA /* FilePickerViewController.m in Sources */,
 				501722241F53B306009592DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +381,7 @@
 		};
 		501722371F53B306009592DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29A29C27E24BF88CF10AFDCB /* Pods-FilePicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SWVUHC49K;
@@ -285,6 +394,7 @@
 		};
 		501722381F53B306009592DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6A77CED3843217D1C091518 /* Pods-FilePicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8SWVUHC49K;
@@ -314,6 +424,7 @@
 				501722381F53B306009592DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

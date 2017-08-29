@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "FilePickerViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -16,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
@@ -25,5 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)chooseFileButtonClicked:(id)sender {
+    FilePickerViewController *picker = [[FilePickerViewController alloc] init];
+    picker.onFinishButtonClicked = ^(NSString * str){
+        self.label.text = str;
+    };
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
 @end
