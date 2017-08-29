@@ -13,13 +13,13 @@
 		5017222D1F53B306009592DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5017222B1F53B306009592DA /* Main.storyboard */; };
 		5017222F1F53B306009592DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5017222E1F53B306009592DA /* Assets.xcassets */; };
 		501722321F53B306009592DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501722301F53B306009592DA /* LaunchScreen.storyboard */; };
-		5017223D1F53FD44009592DA /* FilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5017223C1F53FD44009592DA /* FilePickerViewController.m */; };
-		501722421F553B39009592DA /* 文件.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722401F553B39009592DA /* 文件.png */; };
-		501722431F553B39009592DA /* 文件夹.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722411F553B39009592DA /* 文件夹.png */; };
-		501722461F554117009592DA /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722441F554117009592DA /* 返回.png */; };
-		501722471F554117009592DA /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722451F554117009592DA /* 关闭.png */; };
-		501722501F555F0B009592DA /* 方形未选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017224E1F555F0B009592DA /* 方形未选中.png */; };
-		501722511F555F0B009592DA /* 方形选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017224F1F555F0B009592DA /* 方形选中.png */; };
+		5017225C1F5563DD009592DA /* FilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501722541F5563DD009592DA /* FilePickerViewController.m */; };
+		5017225D1F5563DD009592DA /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722561F5563DD009592DA /* 关闭.png */; };
+		5017225E1F5563DD009592DA /* 文件.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722571F5563DD009592DA /* 文件.png */; };
+		5017225F1F5563DD009592DA /* 文件夹.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722581F5563DD009592DA /* 文件夹.png */; };
+		501722601F5563DD009592DA /* 方形未选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 501722591F5563DD009592DA /* 方形未选中.png */; };
+		501722611F5563DD009592DA /* 方形选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017225A1F5563DD009592DA /* 方形选中.png */; };
+		501722621F5563DD009592DA /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 5017225B1F5563DD009592DA /* 返回.png */; };
 		51107A859F71FAF6D844D62F /* libPods-FilePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CE7A590AB215CB1C34037F /* libPods-FilePicker.a */; };
 /* End PBXBuildFile section */
 
@@ -35,14 +35,14 @@
 		5017222E1F53B306009592DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		501722311F53B306009592DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		501722331F53B306009592DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5017223B1F53FD44009592DA /* FilePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePickerViewController.h; sourceTree = "<group>"; };
-		5017223C1F53FD44009592DA /* FilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePickerViewController.m; sourceTree = "<group>"; };
-		501722401F553B39009592DA /* 文件.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件.png"; sourceTree = "<group>"; };
-		501722411F553B39009592DA /* 文件夹.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件夹.png"; sourceTree = "<group>"; };
-		501722441F554117009592DA /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
-		501722451F554117009592DA /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
-		5017224E1F555F0B009592DA /* 方形未选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形未选中.png"; sourceTree = "<group>"; };
-		5017224F1F555F0B009592DA /* 方形选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形选中.png"; sourceTree = "<group>"; };
+		501722531F5563DD009592DA /* FilePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePickerViewController.h; sourceTree = "<group>"; };
+		501722541F5563DD009592DA /* FilePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePickerViewController.m; sourceTree = "<group>"; };
+		501722561F5563DD009592DA /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
+		501722571F5563DD009592DA /* 文件.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件.png"; sourceTree = "<group>"; };
+		501722581F5563DD009592DA /* 文件夹.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件夹.png"; sourceTree = "<group>"; };
+		501722591F5563DD009592DA /* 方形未选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形未选中.png"; sourceTree = "<group>"; };
+		5017225A1F5563DD009592DA /* 方形选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方形选中.png"; sourceTree = "<group>"; };
+		5017225B1F5563DD009592DA /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
 		58CE7A590AB215CB1C34037F /* libPods-FilePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FilePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A77CED3843217D1C091518 /* Pods-FilePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FilePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-FilePicker/Pods-FilePicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,14 +84,8 @@
 				501722261F53B306009592DA /* AppDelegate.m */,
 				501722281F53B306009592DA /* ViewController.h */,
 				501722291F53B306009592DA /* ViewController.m */,
-				5017223B1F53FD44009592DA /* FilePickerViewController.h */,
-				5017223C1F53FD44009592DA /* FilePickerViewController.m */,
-				501722401F553B39009592DA /* 文件.png */,
-				501722411F553B39009592DA /* 文件夹.png */,
-				501722441F554117009592DA /* 返回.png */,
-				501722451F554117009592DA /* 关闭.png */,
-				5017224E1F555F0B009592DA /* 方形未选中.png */,
-				5017224F1F555F0B009592DA /* 方形选中.png */,
+				501722521F5563DD009592DA /* Class */,
+				501722551F5563DD009592DA /* Resource */,
 				5017222B1F53B306009592DA /* Main.storyboard */,
 				5017222E1F53B306009592DA /* Assets.xcassets */,
 				501722301F53B306009592DA /* LaunchScreen.storyboard */,
@@ -107,6 +101,28 @@
 				501722231F53B306009592DA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		501722521F5563DD009592DA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				501722531F5563DD009592DA /* FilePickerViewController.h */,
+				501722541F5563DD009592DA /* FilePickerViewController.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		501722551F5563DD009592DA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				501722561F5563DD009592DA /* 关闭.png */,
+				501722571F5563DD009592DA /* 文件.png */,
+				501722581F5563DD009592DA /* 文件夹.png */,
+				501722591F5563DD009592DA /* 方形未选中.png */,
+				5017225A1F5563DD009592DA /* 方形选中.png */,
+				5017225B1F5563DD009592DA /* 返回.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		A8938C134C7B3870338D4CD8 /* Frameworks */ = {
@@ -188,15 +204,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5017225F1F5563DD009592DA /* 文件夹.png in Resources */,
+				5017225E1F5563DD009592DA /* 文件.png in Resources */,
 				501722321F53B306009592DA /* LaunchScreen.storyboard in Resources */,
-				501722471F554117009592DA /* 关闭.png in Resources */,
-				501722461F554117009592DA /* 返回.png in Resources */,
+				5017225D1F5563DD009592DA /* 关闭.png in Resources */,
+				501722621F5563DD009592DA /* 返回.png in Resources */,
+				501722611F5563DD009592DA /* 方形选中.png in Resources */,
 				5017222F1F53B306009592DA /* Assets.xcassets in Resources */,
-				501722421F553B39009592DA /* 文件.png in Resources */,
 				5017222D1F53B306009592DA /* Main.storyboard in Resources */,
-				501722431F553B39009592DA /* 文件夹.png in Resources */,
-				501722501F555F0B009592DA /* 方形未选中.png in Resources */,
-				501722511F555F0B009592DA /* 方形选中.png in Resources */,
+				501722601F5563DD009592DA /* 方形未选中.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +276,7 @@
 			files = (
 				5017222A1F53B306009592DA /* ViewController.m in Sources */,
 				501722271F53B306009592DA /* AppDelegate.m in Sources */,
-				5017223D1F53FD44009592DA /* FilePickerViewController.m in Sources */,
+				5017225C1F5563DD009592DA /* FilePickerViewController.m in Sources */,
 				501722241F53B306009592DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
