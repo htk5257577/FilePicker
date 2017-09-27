@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ChooseMode)
+{
+    Single = 0,
+    Mutiple
+};
+
 @interface FilePickerViewController : UIViewController
 @property (nonatomic, copy)NSString *titleStr;
-@property (nonatomic, copy) void (^onFinishButtonClicked)(NSString *);
+@property (nonatomic, assign)ChooseMode mode;
+@property (nonatomic, copy) void (^onFinishButtonClicked)(id);
 @end

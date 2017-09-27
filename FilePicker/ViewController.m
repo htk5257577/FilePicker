@@ -28,8 +28,10 @@
 
 - (IBAction)chooseFileButtonClicked:(id)sender {
     FilePickerViewController *picker = [[FilePickerViewController alloc] init];
-    picker.onFinishButtonClicked = ^(NSString * str){
-        self.label.text = str;
+    picker.mode = Mutiple;
+    picker.onFinishButtonClicked = ^(id data){
+        NSArray *array = data;
+        self.label.text = [array componentsJoinedByString:@"  "];
     };
     [self presentViewController:picker animated:YES completion:nil];
 }

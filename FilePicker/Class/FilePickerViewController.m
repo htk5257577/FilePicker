@@ -26,8 +26,8 @@
         self.fileTypeImageView = [[UIImageView alloc] init];
         [self.contentView addSubview:self.fileTypeImageView];
         [self.fileTypeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.equalTo(self.contentView).offset(5);
-            make.bottom.equalTo(self.contentView).offset(-5);
+            make.left.top.equalTo(self.contentView).offset(7);
+            make.bottom.equalTo(self.contentView).offset(-7);
             make.width.equalTo(self.fileTypeImageView.mas_height);
         }];
         
@@ -73,6 +73,25 @@
     }
 }
 
+- (void)configCell:(NSArray *)dataSource row:(NSInteger)row path:(NSString *)currentPath indexArray:(NSArray<NSNumber *> *)chooseIndexArray{
+    self.fileNameLabel.text = dataSource[row];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *path = [NSString stringWithFormat:@"%@/%@",currentPath,dataSource[row]];
+    BOOL isDir;
+    [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    if (isDir) {
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件夹"]];
+    }else{
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件"]];
+    }
+    
+    if ([chooseIndexArray containsObject:@(row)]) {
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形选中"] forState:UIControlStateNormal];
+    }else{
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中"] forState:UIControlStateNormal];
+    }
+}
+
 
 - (void)onChooseButoonClicked:(UIButton *)button{
     if (self.onChooseButtonClicked) {
@@ -83,16 +102,23 @@
 
 @end
 
-
 @interface FilePickerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, retain)UIColor *backgroundColor;
 @property (nonatomic, retain)UITableView *tableView;
 @property (nonatomic, copy)NSString *currentPath;
 @property (nonatomic, retain)NSArray *dataSource;
 @property (nonatomic, retain)NSNumber *chooseIndex;
+@property (nonatomic, retain)NSMutableArray<NSNumber *> *chooseIndexArray;
 @end
 
 @implementation FilePickerViewController
+
+-(NSMutableArray<NSNumber *> *)chooseIndexArray{
+    if (!_chooseIndexArray) {
+        _chooseIndexArray = [[NSMutableArray alloc] init];
+    }
+    return _chooseIndexArray;
+}
 
 -(NSString *)currentPath{
     if (!_currentPath) {
@@ -127,6 +153,7 @@
     }
     return _tableView;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -202,6 +229,8 @@
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     if (![self.currentPath isEqualToString:docPath]) {
         self.currentPath = [self.currentPath stringByDeletingLastPathComponent];
+        self.chooseIndex = nil;
+        [self.chooseIndexArray removeAllObjects];
         [self.tableView reloadData];
     }
 }
@@ -211,9 +240,19 @@
 }
 
 - (void)onFinishButtonClicked:(UIButton *)button{
-    if (self.chooseIndex) {
+    if (self.mode == Single && self.chooseIndex) {
         if (self.onFinishButtonClicked) {
             self.onFinishButtonClicked([self.currentPath stringByAppendingPathComponent:self.dataSource[self.chooseIndex.integerValue]]);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }else if (self.mode == Mutiple && self.chooseIndexArray.count > 0){
+        if (self.onFinishButtonClicked) {
+            NSMutableArray *pathArray = [NSMutableArray array];
+            for (NSNumber *index in self.chooseIndexArray) {
+                NSString *path = [self.currentPath stringByAppendingPathComponent:self.dataSource[index.integerValue]];
+                [pathArray addObject:path];
+            }
+            self.onFinishButtonClicked(pathArray);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }else{
@@ -240,13 +279,25 @@
     if (cell == nil) {
         cell = [[FilePickerCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
-    [cell configCell:self.dataSource row:indexPath.row path:self.currentPath index:self.chooseIndex];
+    if (self.mode == Single) {
+        [cell configCell:self.dataSource row:indexPath.row path:self.currentPath index:self.chooseIndex];
+    }else{
+        [cell configCell:self.dataSource row:indexPath.row path:self.currentPath indexArray:self.chooseIndexArray];
+    }
     __weak FilePickerViewController *weakSelf= self;
     cell.onChooseButtonClicked = ^(){
-        if (self.chooseIndex && weakSelf.chooseIndex.integerValue == indexPath.row) {
-            weakSelf.chooseIndex = nil;
+        if (weakSelf.mode == Single) {
+            if (weakSelf.chooseIndex && weakSelf.chooseIndex.integerValue == indexPath.row) {
+                weakSelf.chooseIndex = nil;
+            }else{
+                weakSelf.chooseIndex = @(indexPath.row);
+            }
         }else{
-            weakSelf.chooseIndex = @(indexPath.row);
+            if ([weakSelf.chooseIndexArray containsObject:@(indexPath.row)]) {
+                [weakSelf.chooseIndexArray removeObject:@(indexPath.row)];
+            }else{
+                [weakSelf.chooseIndexArray addObject:@(indexPath.row)];
+            }
         }
         [weakSelf.tableView reloadData];
     };
@@ -261,6 +312,7 @@
     if (isDir) {
         self.currentPath = path;
         self.chooseIndex = nil;
+        [self.chooseIndexArray removeAllObjects];
         [self.tableView reloadData];
     }
 }
