@@ -18,4 +18,6 @@ typedef NS_ENUM(NSInteger, ChooseMode)
 @property (nonatomic, copy)NSString *titleStr;
 @property (nonatomic, assign)ChooseMode mode;
 @property (nonatomic, copy) void (^onFinishButtonClicked)(id);
+
+-(instancetype)initWithMode:(ChooseMode)mode;
 @end

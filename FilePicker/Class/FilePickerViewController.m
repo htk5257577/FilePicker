@@ -113,6 +113,13 @@
 
 @implementation FilePickerViewController
 
+-(instancetype)initWithMode:(ChooseMode)mode{
+    if (self = [super init]) {
+        self.mode = mode;
+    }
+    return self;
+}
+
 -(NSMutableArray<NSNumber *> *)chooseIndexArray{
     if (!_chooseIndexArray) {
         _chooseIndexArray = [[NSMutableArray alloc] init];
