@@ -27,12 +27,14 @@
 }
 
 - (IBAction)chooseFileButtonClicked:(id)sender {
-    FilePickerViewController *picker = [[FilePickerViewController alloc] initWithMode:Mutiple];
+    FilePickerViewController *picker = [[FilePickerViewController alloc] initWithMode:FilePickerMutiple];
     picker.onFinishButtonClicked = ^(id data){
         NSArray *array = data;
         self.label.text = [array componentsJoinedByString:@"  "];
     };
+    self.modalPresentationStyle = UIModalPresentationPopover;
     [self presentViewController:picker animated:YES completion:nil];
+    
 }
 
 @end

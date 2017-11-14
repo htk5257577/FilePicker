@@ -10,8 +10,8 @@
 
 typedef NS_ENUM(NSInteger, ChooseMode)
 {
-    Single = 0,
-    Mutiple
+    FilePickerSingle = 0,
+    FilePickerMutiple
 };
 
 @interface FilePickerViewController : UIViewController

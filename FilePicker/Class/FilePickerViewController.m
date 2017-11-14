@@ -247,12 +247,12 @@
 }
 
 - (void)onFinishButtonClicked:(UIButton *)button{
-    if (self.mode == Single && self.chooseIndex) {
+    if (self.mode == FilePickerSingle && self.chooseIndex) {
         if (self.onFinishButtonClicked) {
             self.onFinishButtonClicked([self.currentPath stringByAppendingPathComponent:self.dataSource[self.chooseIndex.integerValue]]);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
-    }else if (self.mode == Mutiple && self.chooseIndexArray.count > 0){
+    }else if (self.mode == FilePickerMutiple && self.chooseIndexArray.count > 0){
         if (self.onFinishButtonClicked) {
             NSMutableArray *pathArray = [NSMutableArray array];
             for (NSNumber *index in self.chooseIndexArray) {
@@ -286,14 +286,14 @@
     if (cell == nil) {
         cell = [[FilePickerCell alloc] initWithReuseIdentifier:CellIdentifier];
     }
-    if (self.mode == Single) {
+    if (self.mode == FilePickerSingle) {
         [cell configCell:self.dataSource row:indexPath.row path:self.currentPath index:self.chooseIndex];
     }else{
         [cell configCell:self.dataSource row:indexPath.row path:self.currentPath indexArray:self.chooseIndexArray];
     }
     __weak FilePickerViewController *weakSelf= self;
     cell.onChooseButtonClicked = ^(){
-        if (weakSelf.mode == Single) {
+        if (weakSelf.mode == FilePickerSingle) {
             if (weakSelf.chooseIndex && weakSelf.chooseIndex.integerValue == indexPath.row) {
                 weakSelf.chooseIndex = nil;
             }else{
