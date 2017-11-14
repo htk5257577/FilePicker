@@ -32,7 +32,7 @@
         NSArray *array = data;
         self.label.text = [array componentsJoinedByString:@"  "];
     };
-    self.modalPresentationStyle = UIModalPresentationPopover;
+    picker.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:picker animated:YES completion:nil];
     
 }

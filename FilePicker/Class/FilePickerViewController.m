@@ -9,7 +9,7 @@
 #import "FilePickerViewController.h"
 #import "Masonry.h"
 
-
+#define myBundle [NSBundle bundleForClass:[FilePickerViewController class]]
 
 @interface FilePickerCell : UITableViewCell
 
@@ -33,7 +33,7 @@
         
         self.chooseButton = [[UIButton alloc] init];
         [self.contentView addSubview:self.chooseButton];
-        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中"] forState:UIControlStateNormal];
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
         [self.chooseButton addTarget:self action:@selector(onChooseButoonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.chooseButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.height.equalTo(@(30));
@@ -61,15 +61,15 @@
     BOOL isDir;
     [fileManager fileExistsAtPath:path isDirectory:&isDir];
     if (isDir) {
-        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件夹"]];
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件夹" inBundle:myBundle compatibleWithTraitCollection:nil]];
     }else{
-        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件"]];
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件" inBundle:myBundle compatibleWithTraitCollection:nil]];
     }
     
     if (chooseIndex && chooseIndex.integerValue == row) {
-        [self.chooseButton setImage:[UIImage imageNamed:@"方形选中"] forState:UIControlStateNormal];
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形选中" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     }else{
-        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中"] forState:UIControlStateNormal];
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     }
 }
 
@@ -80,15 +80,15 @@
     BOOL isDir;
     [fileManager fileExistsAtPath:path isDirectory:&isDir];
     if (isDir) {
-        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件夹"]];
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件夹" inBundle:myBundle compatibleWithTraitCollection:nil]];
     }else{
-        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件"]];
+        [self.fileTypeImageView setImage:[UIImage imageNamed:@"文件" inBundle:myBundle compatibleWithTraitCollection:nil]];
     }
     
     if ([chooseIndexArray containsObject:@(row)]) {
-        [self.chooseButton setImage:[UIImage imageNamed:@"方形选中"] forState:UIControlStateNormal];
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形选中" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     }else{
-        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中"] forState:UIControlStateNormal];
+        [self.chooseButton setImage:[UIImage imageNamed:@"方形未选中" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     }
 }
 
@@ -193,7 +193,7 @@
     
     UIButton *returnButton = [[UIButton alloc] init];
     [topBar addSubview:returnButton];
-    [returnButton setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+    [returnButton setImage:[UIImage imageNamed:@"返回" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     [returnButton addTarget:self action:@selector(onReturnButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [returnButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.width.equalTo(@(25));
@@ -203,7 +203,7 @@
     
     UIButton *closeButton = [[UIButton alloc] init];
     [topBar addSubview:closeButton];
-    [closeButton setImage:[UIImage imageNamed:@"关闭"] forState:UIControlStateNormal];
+    [closeButton setImage:[UIImage imageNamed:@"关闭" inBundle:myBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(onCloseButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.width.equalTo(@(25));
