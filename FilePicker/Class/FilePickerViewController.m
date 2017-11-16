@@ -104,6 +104,7 @@
 
 @interface FilePickerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, retain)UIColor *backgroundColor;
+@property (nonatomic, retain)UILabel *pathLabel;
 @property (nonatomic, retain)UITableView *tableView;
 @property (nonatomic, copy)NSString *currentPath;
 @property (nonatomic, retain)NSArray *dataSource;
@@ -165,7 +166,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configView];
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    [self addObserver:self forKeyPath:@"currentPath" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld|NSKeyValueObservingOptionInitial context:nil];
+}
+
+-(void)dealloc{
+    [self removeObserver:self forKeyPath:@"currentPath"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"%@",change);
+    if ([keyPath isEqualToString:@"currentPath"]) {
+        if (change[@"new"] != change[@"old"]) {
+            NSString *pathStr = [self.currentPath stringByReplacingOccurrencesOfString:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] withString:@"Documents"];
+            self.pathLabel.text = [NSString stringWithFormat:@"当前路径:%@",pathStr];
+            CGRect rect = [self.pathLabel.text boundingRectWithSize:CGSizeMake(self.pathLabel.frame.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName : self.pathLabel.font} context:nil];
+            self.pathLabel.frame = CGRectMake(0, 0, self.pathLabel.frame.size.width, rect.size.height+20);
+        }
+    }
+    
 }
 
 - (void)configView{
@@ -213,7 +232,7 @@
     
     UIButton *chooseButton = [[UIButton alloc] init];
     [self.view addSubview:chooseButton];
-    [chooseButton setTitle:@"选中" forState:UIControlStateNormal];
+    [chooseButton setTitle:@"确定" forState:UIControlStateNormal];
     chooseButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     chooseButton.backgroundColor = self.backgroundColor;
     [chooseButton addTarget:self action:@selector(onFinishButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -222,6 +241,12 @@
         make.height.equalTo(@(50));
     }];
     
+    self.pathLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 100)];
+    self.pathLabel.numberOfLines = 0;
+    self.pathLabel.font = [UIFont systemFontOfSize:20];
+    self.pathLabel.textColor = self.backgroundColor;
+    self.tableView.tableHeaderView = self.pathLabel;
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
@@ -247,26 +272,29 @@
 }
 
 - (void)onFinishButtonClicked:(UIButton *)button{
-    if (self.mode == FilePickerSingle && self.chooseIndex) {
+    if (self.mode == FilePickerSingle) {
         if (self.onFinishButtonClicked) {
-            self.onFinishButtonClicked([self.currentPath stringByAppendingPathComponent:self.dataSource[self.chooseIndex.integerValue]]);
+            NSString *targetStr = self.currentPath;
+            if (self.chooseIndex) {
+                targetStr = [self.currentPath stringByAppendingPathComponent:self.dataSource[self.chooseIndex.integerValue]];
+            }
+            self.onFinishButtonClicked(targetStr);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
-    }else if (self.mode == FilePickerMutiple && self.chooseIndexArray.count > 0){
+    }else if (self.mode == FilePickerMutiple){
         if (self.onFinishButtonClicked) {
-            NSMutableArray *pathArray = [NSMutableArray array];
-            for (NSNumber *index in self.chooseIndexArray) {
-                NSString *path = [self.currentPath stringByAppendingPathComponent:self.dataSource[index.integerValue]];
-                [pathArray addObject:path];
+            NSMutableArray *pathArray = [NSMutableArray arrayWithObject:self.currentPath];
+            if (self.chooseIndexArray.count > 0) {
+                [pathArray removeAllObjects];
+                for (NSNumber *index in self.chooseIndexArray) {
+                    NSString *path = [self.currentPath stringByAppendingPathComponent:self.dataSource[index.integerValue]];
+                    [pathArray addObject:path];
+                }
             }
+            
             self.onFinishButtonClicked(pathArray);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
-    }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"未选中" message:@"请选择文件/文件夹" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alertController addAction:action];
-        [self presentViewController:alertController animated:YES completion:nil];
     }
     
 }
